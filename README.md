@@ -1,2 +1,49 @@
 # rtmpPusher
-push audio and video data to rtmp server with librtmp
+push audio and video data to rtmp server with librtmp.
+now It support compile for Android or Ubuntu.
+
+
+Usage:
+
+                            +-----------+
+                            +           +
+                +-----------+   Init    +---------------+
+                |           +           +               |
+                |           +-----------+               |
+                |                                       |
+               \ /                                     \ /
+        +---------------+                   +-----------------------+           
+        +               +                   +                       +
+        + sendSpsAndPps +                   + sendAacSequenceHeader +
+        +               +                   +                       +
+        +---------------+                   +-----------------------+
+                |                                       |
+                |                                       |
+                |                                       |
+                +---------------------------------------+
+                                    |
+                                    |
+                                    |    
+                                    |
+                --------------------+--------------------+
+                |                   |                    |  
+               \ /                  |                   \ / 
+        +---------------+           |           +----------------+           
+        +               +           |           +                +
+        + sendVideoData +           |           + sendAudioData  +
+        +               +           |           +                +
+        +---------------+           |           +----------------+        
+                                    |
+                                    |        
+                                    |   
+                                    |
+                                    |
+                                    |
+                                    |
+                                    |
+                                   \ /   
+                              +-----------+
+                              +           +
+                              +   stop    +
+                              +           +
+                              +-----------+        
